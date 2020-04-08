@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+  jupyter:
+    build:
+      context: notebook-docker
+      dockerfile: Dockerfile
+##    links:
+##      - db
+    volumes:
+      - $PWD/notebooks:/home/jovyan/work/notebooks
+      - $PWD/notebook-docker:/home/jovyan/work/build
+      - $PWD/data:/home/jovyan/work/data
+    ports:
+      - 8888:8888
